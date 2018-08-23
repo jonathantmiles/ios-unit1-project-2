@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // gbaAuthClient.resetAuthorization()
+        gbaAuthClient.resetAuthorization()
         
         if let authState = gbaAuthClient.authorization?.authState, authState.isAuthorized {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)

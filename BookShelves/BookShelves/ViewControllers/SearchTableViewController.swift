@@ -57,6 +57,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             if let indexPath = tableView.indexPathForSelectedRow {
                 destVC.volume = bookController.searchedBooks[indexPath.row]
             }
+            destVC.fromSearch = true
         }
     }
     

@@ -15,6 +15,8 @@
 		F8456D6F212E1A04004C6D62 /* BookShelves.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8456D6D212E1A04004C6D62 /* BookShelves.xcdatamodeld */; };
 		F8456D71212E4B3C004C6D62 /* Array+AuthorsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8456D70212E4B3C004C6D62 /* Array+AuthorsDisplay.swift */; };
 		F8456D74212E4D4E004C6D62 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8456D73212E4D4E004C6D62 /* ImageHelper.swift */; };
+		F85065CF212F12C5005D781F /* VolumeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85065CE212F12C5005D781F /* VolumeCollectionViewCell.swift */; };
+		F85065D1212F3E36005D781F /* ChangeBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85065D0212F3E36005D781F /* ChangeBookshelfViewController.swift */; };
 		F8AAC457212C80A10009CBB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AAC456212C80A10009CBB5 /* AppDelegate.swift */; };
 		F8AAC45C212C80A10009CBB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AAC45A212C80A10009CBB5 /* Main.storyboard */; };
 		F8AAC45E212C80A30009CBB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8AAC45D212C80A30009CBB5 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		F8456D6E212E1A04004C6D62 /* BookShelves.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookShelves.xcdatamodel; sourceTree = "<group>"; };
 		F8456D70212E4B3C004C6D62 /* Array+AuthorsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+AuthorsDisplay.swift"; sourceTree = "<group>"; };
 		F8456D73212E4D4E004C6D62 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		F85065CE212F12C5005D781F /* VolumeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeCollectionViewCell.swift; sourceTree = "<group>"; };
+		F85065D0212F3E36005D781F /* ChangeBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBookshelfViewController.swift; sourceTree = "<group>"; };
 		F8AAC453212C80A10009CBB5 /* BookShelves.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelves.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AAC456212C80A10009CBB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8AAC45B212C80A10009CBB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +125,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		F85065CD212F11F8005D781F /* Cells and Items */ = {
+			isa = PBXGroup;
+			children = (
+				F85065CE212F12C5005D781F /* VolumeCollectionViewCell.swift */,
+			);
+			path = "Cells and Items";
+			sourceTree = "<group>";
+		};
 		F8AAC44A212C80A10009CBB5 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +161,7 @@
 				F8456D5F212DC2F5004C6D62 /* Models */,
 				F8456D66212DD016004C6D62 /* ModelControllers */,
 				F8AAC478212CB6E50009CBB5 /* ViewControllers */,
+				F85065CD212F11F8005D781F /* Cells and Items */,
 				F8456D72212E4D36004C6D62 /* Helpers */,
 				F8AAC468212C85DC0009CBB5 /* Frameworks */,
 			);
@@ -173,6 +186,7 @@
 				F8AAC47D212CB7D30009CBB5 /* BookshelfCollectionViewController.swift */,
 				F8AAC47F212CBA710009CBB5 /* VolumeDetailViewController.swift */,
 				F8AAC481212CBAD60009CBB5 /* SearchTableViewController.swift */,
+				F85065D0212F3E36005D781F /* ChangeBookshelfViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -257,7 +271,9 @@
 				F8AAC47E212CB7D30009CBB5 /* BookshelfCollectionViewController.swift in Sources */,
 				F8456D71212E4B3C004C6D62 /* Array+AuthorsDisplay.swift in Sources */,
 				F8456D63212DC75B004C6D62 /* BookshelfRepresentation.swift in Sources */,
+				F85065D1212F3E36005D781F /* ChangeBookshelfViewController.swift in Sources */,
 				F8456D65212DC8B1004C6D62 /* BookshelvesRepresentation.swift in Sources */,
+				F85065CF212F12C5005D781F /* VolumeCollectionViewCell.swift in Sources */,
 				F8AAC480212CBA710009CBB5 /* VolumeDetailViewController.swift in Sources */,
 				F8AAC482212CBAD60009CBB5 /* SearchTableViewController.swift in Sources */,
 				F8456D6F212E1A04004C6D62 /* BookShelves.xcdatamodeld in Sources */,

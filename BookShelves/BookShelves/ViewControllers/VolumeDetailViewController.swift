@@ -22,18 +22,9 @@ class VolumeDetailViewController: UIViewController {
     }
     
     @IBAction func changeBookshelf(_ sender: Any) {
+        self.performSegue(withIdentifier: "ChooseBookShelf", sender: nil)
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func updateViews() {
         DispatchQueue.main.async {
@@ -43,31 +34,39 @@ class VolumeDetailViewController: UIViewController {
                         self.title = title
                     }
                     if let authors = volumeInfo.authors {
-                        self.authorsListLabel.text = authors.displayAuthorsAsString(authors: authors)
+                            self.authorsListLabel.text = authors.displayAuthorsAsString(authors: authors)
                     }
                     if let description = volumeInfo.description {
-                        self.descriptionTextView.text = description
+                            self.descriptionTextView.text = description
                     }
                     if let imageLinks = volumeInfo.imageLinks {
-                        DispatchQueue.main.async {
                             let image = self.imageHelper.convertURLToImage(fromStruct: imageLinks)
                             self.coverImageView.image = image
-                        }
                     }
                 }
             }
         }
     }
     
-    // MARK: - Properties
+    // MARK: - Navigation
     
-    var volume: VolumeRepresentation? {
-        didSet {
-            updateViews()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ChooseBookShelf" {
+            let destVC = segue.destination as! ChangeBookshelfViewController
+            destVC.bookController = bookController
+            destVC.volume = volume
+            destVC.fromSearch = fromSearch
         }
     }
+    
+    // MARK: - Properties
+    
+    var volume: VolumeRepresentation?
     var bookController: BookController?
+    var shelfID: Int?
     let imageHelper = ImageHelper()
+    
+    var fromSearch: Bool?
     
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var authorsListLabel: UILabel!

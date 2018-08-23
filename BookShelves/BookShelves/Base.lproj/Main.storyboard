@@ -149,20 +149,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vih-g2-980">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="100" height="160"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FE6-8c-Y4T">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VolumeItem" id="FE6-8c-Y4T" customClass="VolumeCollectionViewCell" customModule="BookShelves" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="100" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CRb-1S-ky4">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="160"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRe-OH-vhb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="121.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fr4-2l-Iow">
+                                                    <rect key="frame" x="0.0" y="121.5" width="100" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDl-6S-e1g">
+                                                    <rect key="frame" x="0.0" y="142" width="100" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="CRb-1S-ky4" firstAttribute="leading" secondItem="FE6-8c-Y4T" secondAttribute="leading" id="6ku-Hw-jCT"/>
+                                    <constraint firstItem="CRb-1S-ky4" firstAttribute="width" secondItem="FE6-8c-Y4T" secondAttribute="width" id="Ba7-me-tzh"/>
+                                    <constraint firstItem="CRb-1S-ky4" firstAttribute="height" secondItem="FE6-8c-Y4T" secondAttribute="height" id="O9l-3u-Yjz"/>
+                                    <constraint firstItem="CRb-1S-ky4" firstAttribute="top" secondItem="FE6-8c-Y4T" secondAttribute="top" id="xij-X6-OqX"/>
+                                </constraints>
                                 <connections>
+                                    <outlet property="authorLabel" destination="yDl-6S-e1g" id="7bP-s0-M4Z"/>
+                                    <outlet property="coverImageView" destination="yRe-OH-vhb" id="XZs-Hx-ASu"/>
+                                    <outlet property="titleLabel" destination="Fr4-2l-Iow" id="jJn-Uc-5Oo"/>
                                     <segue destination="13F-Ry-zqG" kind="show" identifier="ShowVolumeDetail" id="Q9Y-M7-2Av"/>
                                 </connections>
                             </collectionViewCell>
@@ -176,7 +207,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBA-ce-YZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2914" y="118"/>
+            <point key="canvasLocation" x="2912.8000000000002" y="117.39130434782609"/>
         </scene>
         <!--Book Detail-->
         <scene sceneID="d5s-yc-uzA">
@@ -209,6 +240,7 @@
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="changeBookshelf:" destination="13F-Ry-zqG" eventType="touchUpInside" id="wVN-TK-9l5"/>
+                                            <segue destination="OMz-oB-Pdc" kind="presentation" identifier="ChooseBookShelf" id="wXH-TY-BKC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -235,6 +267,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csk-WW-YiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2913" y="875"/>
+        </scene>
+        <!--Change Bookshelf View Controller-->
+        <scene sceneID="3Gy-FF-AMW">
+            <objects>
+                <viewController id="OMz-oB-Pdc" customClass="ChangeBookshelfViewController" customModule="BookShelves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MB3-DL-aBU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="D6a-98-oSX">
+                                <rect key="frame" x="44.5" y="247.5" width="286.5" height="172.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRz-jl-pKh">
+                                        <rect key="frame" x="112.5" y="0.0" width="62" height="30"/>
+                                        <state key="normal" title="Favorites"/>
+                                        <connections>
+                                            <action selector="favoriteToggle:" destination="OMz-oB-Pdc" eventType="touchUpInside" id="GMU-cE-5mM"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change volume to another bookshelf:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbV-9C-lIC">
+                                        <rect key="frame" x="0.0" y="38" width="286.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voB-eH-oAf">
+                                        <rect key="frame" x="115.5" y="66.5" width="56" height="30"/>
+                                        <state key="normal" title="To Read"/>
+                                        <connections>
+                                            <action selector="sendToRead:" destination="OMz-oB-Pdc" eventType="touchUpInside" id="UMh-4u-TPd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZE-b9-aCv">
+                                        <rect key="frame" x="98" y="104.5" width="91" height="30"/>
+                                        <state key="normal" title="Reading Now"/>
+                                        <connections>
+                                            <action selector="sendReadingNow:" destination="OMz-oB-Pdc" eventType="touchUpInside" id="hfU-1V-vFG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN7-w1-m3j">
+                                        <rect key="frame" x="126" y="142.5" width="35" height="30"/>
+                                        <state key="normal" title="Read"/>
+                                        <connections>
+                                            <action selector="sendRead:" destination="OMz-oB-Pdc" eventType="touchUpInside" id="ZV5-xP-Iyj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="D6a-98-oSX" firstAttribute="centerX" secondItem="MB3-DL-aBU" secondAttribute="centerX" id="anb-p4-kQR"/>
+                            <constraint firstItem="D6a-98-oSX" firstAttribute="centerY" secondItem="MB3-DL-aBU" secondAttribute="centerY" id="blJ-B6-v2T"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="igT-2z-k11"/>
+                    </view>
+                    <connections>
+                        <outlet property="favoritesOutlet" destination="dRz-jl-pKh" id="H27-XD-eaR"/>
+                        <outlet property="helpfulTextLabel" destination="nbV-9C-lIC" id="nfo-0H-58w"/>
+                        <outlet property="readOutlet" destination="vN7-w1-m3j" id="7AG-2y-lCV"/>
+                        <outlet property="readingNowOutlet" destination="gZE-b9-aCv" id="uXK-E4-PaY"/>
+                        <outlet property="toReadOutlet" destination="voB-eH-oAf" id="7tx-I4-Ljg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5t3-uT-YOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4020" y="875"/>
         </scene>
         <!--Search-->
         <scene sceneID="geM-cS-wDw">
